@@ -116,19 +116,19 @@ qgen -v -c -d -s 0.1 > tpch-stream_s0.1.sql
 ### 7. Create the "db schema" using the `dss.ddl` file present in the `dbgen` dir
 NOTE: Not the literal schema, but the empty tables with their appropriate col data types.
 1. Create a database called tpch
-    ```sql
-    CREATE DATABASE tpch
-    ```
+```sql
+CREATE DATABASE tpch
+```
 2. Run the DDL script to create teh empty tables
-    ```sh
-    # psql -U username -d database_name -f /path/to/sql_file.sql
-    psql -U jaffrey -d tpch -f $DSS_CONFIG/dss.ddl
-    ```
+```sh
+# psql -U username -d database_name -f /path/to/sql_file.sql
+psql -U jaffrey -d tpch -f $DSS_CONFIG/dss.ddl
+```
 
 ### 8. Load the data generated
 Install `python-dotenv` and `psycopg2` using `pip` and enter the appropriate username, password and database name in the below script (also present in `import_data.py`) and run it.
 
-    ```py
+```py
     import os
     import psycopg2
     import dotenv
@@ -187,11 +187,11 @@ Install `python-dotenv` and `psycopg2` using `pip` and enter the appropriate use
     # Close the cursor and database connection
     cursor.close()
     conn.close()
-    ```
+```
 
-    NOTE: If an error occurs installing psycopg2 try running the below script and then try installing the pip package:
-    ```sh
+NOTE: If an error occurs installing psycopg2 try running the below script and then try installing the pip package:
+```sh
     sudo apt-get install libpq-dev python3-dev
-    ```
+```
 
 
