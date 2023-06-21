@@ -20,14 +20,14 @@ select
 from
 	lineitem
 where
-	l_shipdate <= date '1998-12-01' - interval '90' day (3)
+	l_shipdate <= date '1998-12-01' - interval '90' day
 group by
 	l_returnflag,
 	l_linestatus
 order by
 	l_returnflag,
-	l_linestatus;
-limit -1;
+	l_linestatus
+limit 9223372036854775807;
 -- $ID$
 -- TPC-H/TPC-R Minimum Cost Supplier Query (Q2)
 -- Functional Query Definition
@@ -76,7 +76,7 @@ order by
 	s_acctbal desc,
 	n_name,
 	s_name,
-	p_partkey;
+	p_partkey
 limit 100;
 -- $ID$
 -- TPC-H/TPC-R Shipping Priority Query (Q3)
@@ -105,7 +105,7 @@ group by
 	o_shippriority
 order by
 	revenue desc,
-	o_orderdate;
+	o_orderdate
 limit 10;
 -- $ID$
 -- TPC-H/TPC-R Order Priority Checking Query (Q4)
@@ -133,8 +133,8 @@ where
 group by
 	o_orderpriority
 order by
-	o_orderpriority;
-limit -1;
+	o_orderpriority
+limit 9223372036854775807;
 -- $ID$
 -- TPC-H/TPC-R Local Supplier Volume Query (Q5)
 -- Functional Query Definition
@@ -164,8 +164,8 @@ where
 group by
 	n_name
 order by
-	revenue desc;
-limit -1;
+	revenue desc
+limit 9223372036854775807;
 -- $ID$
 -- TPC-H/TPC-R Forecasting Revenue Change Query (Q6)
 -- Functional Query Definition
@@ -180,8 +180,8 @@ where
 	l_shipdate >= date '1994-01-01'
 	and l_shipdate < date '1994-01-01' + interval '1' year
 	and l_discount between .06 - 0.01 and .06 + 0.01
-	and l_quantity < 24;
-limit -1;
+	and l_quantity < 24
+limit 9223372036854775807;
 -- $ID$
 -- TPC-H/TPC-R Volume Shipping Query (Q7)
 -- Functional Query Definition
@@ -226,8 +226,8 @@ group by
 order by
 	supp_nation,
 	cust_nation,
-	l_year;
-limit -1;
+	l_year
+limit 9223372036854775807;
 -- $ID$
 -- TPC-H/TPC-R National Market Share Query (Q8)
 -- Functional Query Definition
@@ -270,8 +270,8 @@ from
 group by
 	o_year
 order by
-	o_year;
-limit -1;
+	o_year
+limit 9223372036854775807;
 -- $ID$
 -- TPC-H/TPC-R Product Type Profit Measure Query (Q9)
 -- Functional Query Definition
@@ -309,8 +309,8 @@ group by
 	o_year
 order by
 	nation,
-	o_year desc;
-limit -1;
+	o_year desc
+limit 9223372036854775807;
 -- $ID$
 -- TPC-H/TPC-R Returned Item Reporting Query (Q10)
 -- Functional Query Definition
@@ -347,7 +347,7 @@ group by
 	c_address,
 	c_comment
 order by
-	revenue desc;
+	revenue desc
 limit 20;
 -- $ID$
 -- TPC-H/TPC-R Important Stock Identification Query (Q11)
@@ -381,8 +381,8 @@ group by
 				and n_name = 'GERMANY'
 		)
 order by
-	value desc;
-limit -1;
+	value desc
+limit 9223372036854775807;
 -- $ID$
 -- TPC-H/TPC-R Shipping Modes and Order Priority Query (Q12)
 -- Functional Query Definition
@@ -416,8 +416,8 @@ where
 group by
 	l_shipmode
 order by
-	l_shipmode;
-limit -1;
+	l_shipmode
+limit 9223372036854775807;
 -- $ID$
 -- TPC-H/TPC-R Customer Distribution Query (Q13)
 -- Functional Query Definition
@@ -443,8 +443,8 @@ group by
 	c_count
 order by
 	custdist desc,
-	c_count desc;
-limit -1;
+	c_count desc
+limit 9223372036854775807;
 -- $ID$
 -- TPC-H/TPC-R Promotion Effect Query (Q14)
 -- Functional Query Definition
@@ -463,14 +463,14 @@ from
 where
 	l_partkey = p_partkey
 	and l_shipdate >= date '1995-09-01'
-	and l_shipdate < date '1995-09-01' + interval '1' month;
-limit -1;
+	and l_shipdate < date '1995-09-01' + interval '1' month
+limit 9223372036854775807;
 -- $ID$
 -- TPC-H/TPC-R Top Supplier Query (Q15)
 -- Functional Query Definition
 -- Approved February 1998
 
-create view revenue0 (supplier_no, total_revenue) as
+create or replace view revenue0 (supplier_no, total_revenue) as
 	select
 		l_suppkey,
 		sum(l_extendedprice * (1 - l_discount))
@@ -504,7 +504,6 @@ order by
 	s_suppkey;
 
 drop view revenue0;
-limit -1;
 -- $ID$
 -- TPC-H/TPC-R Parts/Supplier Relationship Query (Q16)
 -- Functional Query Definition
@@ -540,8 +539,8 @@ order by
 	supplier_cnt desc,
 	p_brand,
 	p_type,
-	p_size;
-limit -1;
+	p_size
+limit 9223372036854775807;
 -- $ID$
 -- TPC-H/TPC-R Small-Quantity-Order Revenue Query (Q17)
 -- Functional Query Definition
@@ -564,8 +563,8 @@ where
 			lineitem
 		where
 			l_partkey = p_partkey
-	);
-limit -1;
+	)
+limit 9223372036854775807;
 -- $ID$
 -- TPC-H/TPC-R Large Volume Customer Query (Q18)
 -- Function Query Definition
@@ -603,7 +602,7 @@ group by
 	o_totalprice
 order by
 	o_totalprice desc,
-	o_orderdate;
+	o_orderdate
 limit 100;
 -- $ID$
 -- TPC-H/TPC-R Discounted Revenue Query (Q19)
@@ -645,8 +644,8 @@ where
 		and p_size between 1 and 15
 		and l_shipmode in ('AIR', 'AIR REG')
 		and l_shipinstruct = 'DELIVER IN PERSON'
-	);
-limit -1;
+	)
+limit 9223372036854775807;
 -- $ID$
 -- TPC-H/TPC-R Potential Part Promotion Query (Q20)
 -- Function Query Definition
@@ -689,8 +688,8 @@ where
 	and s_nationkey = n_nationkey
 	and n_name = 'CANADA'
 order by
-	s_name;
-limit -1;
+	s_name
+limit 9223372036854775807;
 -- $ID$
 -- TPC-H/TPC-R Suppliers Who Kept Orders Waiting Query (Q21)
 -- Functional Query Definition
@@ -735,7 +734,7 @@ group by
 	s_name
 order by
 	numwait desc,
-	s_name;
+	s_name
 limit 100;
 -- $ID$
 -- TPC-H/TPC-R Global Sales Opportunity Query (Q22)
@@ -779,5 +778,5 @@ from
 group by
 	cntrycode
 order by
-	cntrycode;
-limit -1;
+	cntrycode
+limit 9223372036854775807;
