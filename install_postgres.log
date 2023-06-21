@@ -1,0 +1,142 @@
+root@diffengine:/home/jaffrey/research/irrelevant_data_access# bash install_postgres.sh 
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+OK
+Get:1 https://cli.github.com/packages stable InRelease [3,917 B]
+Err:1 https://cli.github.com/packages stable InRelease                                                                                                                            
+  The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 23F3D4EA75716059
+Hit:2 https://dl.google.com/linux/chrome/deb stable InRelease                                                                                                                     
+Get:3 http://apt.postgresql.org/pub/repos/apt jammy-pgdg InRelease [117 kB]                                                                                                       
+Hit:4 http://security.ubuntu.com/ubuntu jammy-security InRelease                                                                                                                  
+Hit:5 http://in.archive.ubuntu.com/ubuntu jammy InRelease                                                                                                                         
+Hit:6 http://in.archive.ubuntu.com/ubuntu jammy-updates InRelease                                                                                                  
+Get:7 http://in.archive.ubuntu.com/ubuntu jammy-backports InRelease [108 kB]                                                                                      
+Get:8 https://mega.nz/linux/repo/xUbuntu_22.04 ./ InRelease [2,961 B]                                                
+Get:9 http://apt.postgresql.org/pub/repos/apt jammy-pgdg/main amd64 Packages [265 kB]                                              
+Hit:10 https://ppa.launchpadcontent.net/danielrichter2007/grub-customizer/ubuntu jammy InRelease
+Hit:11 https://ppa.launchpadcontent.net/git-core/ppa/ubuntu jammy InRelease                                             
+Ign:12 https://ppa.launchpadcontent.net/ubuntu-desktop/ubuntu-make/ubuntu jammy InRelease
+Err:13 https://ppa.launchpadcontent.net/ubuntu-desktop/ubuntu-make/ubuntu jammy Release
+  404  Not Found [IP: 2620:2d:4000:1::3e 443]
+Reading package lists... Done                                  
+W: An error occurred during the signature verification. The repository is not updated and the previous index files will be used. GPG error: https://cli.github.com/packages stable InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 23F3D4EA75716059
+W: http://apt.postgresql.org/pub/repos/apt/dists/jammy-pgdg/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+N: Skipping acquire of configured file 'main/binary-i386/Packages' as repository 'http://apt.postgresql.org/pub/repos/apt jammy-pgdg InRelease' doesn't support architecture 'i386'
+E: The repository 'https://ppa.launchpadcontent.net/ubuntu-desktop/ubuntu-make/ubuntu jammy Release' does not have a Release file.
+N: Updating from such a repository can't be done securely, and is therefore disabled by default.
+N: See apt-secure(8) manpage for repository creation and user configuration details.
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  libcommon-sense-perl libjson-perl libjson-xs-perl libllvm14 libpq5 libtypes-serialiser-perl postgresql-15 postgresql-client-15 postgresql-client-common postgresql-common
+  sysstat
+Suggested packages:
+  postgresql-doc postgresql-doc-15 isag
+The following NEW packages will be installed:
+  libcommon-sense-perl libjson-perl libjson-xs-perl libllvm14 libpq5 libtypes-serialiser-perl postgresql postgresql-15 postgresql-client-15 postgresql-client-common
+  postgresql-common sysstat
+0 upgraded, 12 newly installed, 0 to remove and 428 not upgraded.
+Need to get 43.9 MB of archives.
+After this operation, 175 MB of additional disk space will be used.
+Get:1 http://apt.postgresql.org/pub/repos/apt jammy-pgdg/main amd64 postgresql-client-common all 250.pgdg22.04+1 [93.2 kB]
+Get:2 http://in.archive.ubuntu.com/ubuntu jammy/main amd64 libjson-perl all 4.04000-1 [81.8 kB]
+Get:3 http://apt.postgresql.org/pub/repos/apt jammy-pgdg/main amd64 postgresql-common all 250.pgdg22.04+1 [239 kB]
+Get:4 http://apt.postgresql.org/pub/repos/apt jammy-pgdg/main amd64 libpq5 amd64 15.3-1.pgdg22.04+1 [184 kB]
+Get:5 http://apt.postgresql.org/pub/repos/apt jammy-pgdg/main amd64 postgresql-client-15 amd64 15.3-1.pgdg22.04+1 [1,679 kB]
+Get:6 http://in.archive.ubuntu.com/ubuntu jammy/main amd64 libcommon-sense-perl amd64 3.75-2build1 [21.1 kB]
+Get:7 http://in.archive.ubuntu.com/ubuntu jammy/main amd64 libtypes-serialiser-perl all 1.01-1 [11.6 kB]
+Get:8 http://in.archive.ubuntu.com/ubuntu jammy/main amd64 libjson-xs-perl amd64 4.030-1build3 [87.2 kB]
+Get:9 http://apt.postgresql.org/pub/repos/apt jammy-pgdg/main amd64 postgresql-15 amd64 15.3-1.pgdg22.04+1 [16.9 MB]
+Get:10 http://in.archive.ubuntu.com/ubuntu jammy/main amd64 libllvm14 amd64 1:14.0.0-1ubuntu1 [24.0 MB]
+Get:11 http://apt.postgresql.org/pub/repos/apt jammy-pgdg/main amd64 postgresql all 15+250.pgdg22.04+1 [68.2 kB]
+Get:12 http://in.archive.ubuntu.com/ubuntu jammy-updates/main amd64 sysstat amd64 12.5.2-2ubuntu0.2 [487 kB]
+Fetched 43.9 MB in 5s (8,741 kB/s)
+Preconfiguring packages ...
+Selecting previously unselected package libjson-perl.
+(Reading database ... 218894 files and directories currently installed.)
+Preparing to unpack .../00-libjson-perl_4.04000-1_all.deb ...
+Unpacking libjson-perl (4.04000-1) ...
+Selecting previously unselected package postgresql-client-common.
+Preparing to unpack .../01-postgresql-client-common_250.pgdg22.04+1_all.deb ...
+Unpacking postgresql-client-common (250.pgdg22.04+1) ...
+Selecting previously unselected package postgresql-common.
+Preparing to unpack .../02-postgresql-common_250.pgdg22.04+1_all.deb ...
+Adding 'diversion of /usr/bin/pg_config to /usr/bin/pg_config.libpq-dev by postgresql-common'
+Unpacking postgresql-common (250.pgdg22.04+1) ...
+Selecting previously unselected package libcommon-sense-perl:amd64.
+Preparing to unpack .../03-libcommon-sense-perl_3.75-2build1_amd64.deb ...
+Unpacking libcommon-sense-perl:amd64 (3.75-2build1) ...
+Selecting previously unselected package libtypes-serialiser-perl.
+Preparing to unpack .../04-libtypes-serialiser-perl_1.01-1_all.deb ...
+Unpacking libtypes-serialiser-perl (1.01-1) ...
+Selecting previously unselected package libjson-xs-perl.
+Preparing to unpack .../05-libjson-xs-perl_4.030-1build3_amd64.deb ...
+Unpacking libjson-xs-perl (4.030-1build3) ...
+Selecting previously unselected package libllvm14:amd64.
+Preparing to unpack .../06-libllvm14_1%3a14.0.0-1ubuntu1_amd64.deb ...
+Unpacking libllvm14:amd64 (1:14.0.0-1ubuntu1) ...
+Selecting previously unselected package libpq5:amd64.
+Preparing to unpack .../07-libpq5_15.3-1.pgdg22.04+1_amd64.deb ...
+Unpacking libpq5:amd64 (15.3-1.pgdg22.04+1) ...
+Selecting previously unselected package postgresql-client-15.
+Preparing to unpack .../08-postgresql-client-15_15.3-1.pgdg22.04+1_amd64.deb ...
+Unpacking postgresql-client-15 (15.3-1.pgdg22.04+1) ...
+Selecting previously unselected package postgresql-15.
+Preparing to unpack .../09-postgresql-15_15.3-1.pgdg22.04+1_amd64.deb ...
+Unpacking postgresql-15 (15.3-1.pgdg22.04+1) ...
+Selecting previously unselected package postgresql.
+Preparing to unpack .../10-postgresql_15+250.pgdg22.04+1_all.deb ...
+Unpacking postgresql (15+250.pgdg22.04+1) ...
+Selecting previously unselected package sysstat.
+Preparing to unpack .../11-sysstat_12.5.2-2ubuntu0.2_amd64.deb ...
+Unpacking sysstat (12.5.2-2ubuntu0.2) ...
+Setting up postgresql-client-common (250.pgdg22.04+1) ...
+Setting up libpq5:amd64 (15.3-1.pgdg22.04+1) ...
+Setting up libcommon-sense-perl:amd64 (3.75-2build1) ...
+Setting up postgresql-client-15 (15.3-1.pgdg22.04+1) ...
+update-alternatives: using /usr/share/postgresql/15/man/man1/psql.1.gz to provide /usr/share/man/man1/psql.1.gz (psql.1.gz) in auto mode
+Setting up libllvm14:amd64 (1:14.0.0-1ubuntu1) ...
+Setting up libtypes-serialiser-perl (1.01-1) ...
+Setting up libjson-perl (4.04000-1) ...
+Setting up sysstat (12.5.2-2ubuntu0.2) ...
+
+Creating config file /etc/default/sysstat with new version
+update-alternatives: using /usr/bin/sar.sysstat to provide /usr/bin/sar (sar) in auto mode
+Created symlink /etc/systemd/system/sysstat.service.wants/sysstat-collect.timer → /lib/systemd/system/sysstat-collect.timer.
+Created symlink /etc/systemd/system/sysstat.service.wants/sysstat-summary.timer → /lib/systemd/system/sysstat-summary.timer.
+Created symlink /etc/systemd/system/multi-user.target.wants/sysstat.service → /lib/systemd/system/sysstat.service.
+Setting up libjson-xs-perl (4.030-1build3) ...
+Setting up postgresql-common (250.pgdg22.04+1) ...
+Adding user postgres to group ssl-cert
+
+Creating config file /etc/postgresql-common/createcluster.conf with new version
+Building PostgreSQL dictionaries from installed myspell/hunspell packages...
+  en_us
+Removing obsolete dictionary files:
+'/etc/apt/trusted.gpg.d/apt.postgresql.org.gpg' -> '/usr/share/postgresql-common/pgdg/apt.postgresql.org.gpg'
+Created symlink /etc/systemd/system/multi-user.target.wants/postgresql.service → /lib/systemd/system/postgresql.service.
+Setting up postgresql-15 (15.3-1.pgdg22.04+1) ...
+Creating new PostgreSQL cluster 15/main ...
+/usr/lib/postgresql/15/bin/initdb -D /var/lib/postgresql/15/main --auth-local peer --auth-host scram-sha-256 --no-instructions
+The files belonging to this database system will be owned by user "postgres".
+This user must also own the server process.
+
+The database cluster will be initialized with locale "en_IN".
+The default database encoding has accordingly been set to "UTF8".
+The default text search configuration will be set to "english".
+
+Data page checksums are disabled.
+
+fixing permissions on existing directory /var/lib/postgresql/15/main ... ok
+creating subdirectories ... ok
+selecting dynamic shared memory implementation ... posix
+selecting default max_connections ... 100
+selecting default shared_buffers ... 128MB
+selecting default time zone ... Asia/Kolkata
+creating configuration files ... ok
+running bootstrap script ... ok
+performing post-bootstrap initialization ... ok
+syncing data to disk ... ok
+Setting up postgresql (15+250.pgdg22.04+1) ...
+Processing triggers for man-db (2.10.2-1) ...
+Processing triggers for libc-bin (2.35-0ubuntu3) ...
