@@ -1,0 +1,62 @@
+root@diffengine:/home/jaffrey/research/irrelevant_data_access/tpch-kit/dbgen# make MACHINE=LINUX DATABASE=POSTGRESQL
+gcc -g -DDBNAME=\"dss\" -DLINUX -DPOSTGRESQL -DTPCH -DRNG_TEST -D_FILE_OFFSET_BITS=64   -c -o build.o build.c
+gcc -g -DDBNAME=\"dss\" -DLINUX -DPOSTGRESQL -DTPCH -DRNG_TEST -D_FILE_OFFSET_BITS=64   -c -o driver.o driver.c
+driver.c: In function ‘gen_tbl’:
+driver.c:368:62: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 3 has type ‘long long int’ [-Wformat=]
+  368 |                         printf("\nSeeds for %s at rowcount %ld\n", tdefs[tnum].comment, i);
+      |                                                            ~~^                          ~
+      |                                                              |                          |
+      |                                                              long int                   long long int
+      |                                                            %lld
+gcc -g -DDBNAME=\"dss\" -DLINUX -DPOSTGRESQL -DTPCH -DRNG_TEST -D_FILE_OFFSET_BITS=64   -c -o bm_utils.o bm_utils.c
+bm_utils.c: In function ‘tbl_open’:
+bm_utils.c:406:67: warning: ‘%s’ directive writing up to 255 bytes into a region of size 231 [-Wformat-overflow=]
+  406 |                         sprintf(prompt, "Do you want to overwrite %s ?", fullpath);
+      |                                                                   ^~     ~~~~~~~~
+bm_utils.c:406:25: note: ‘sprintf’ output between 28 and 283 bytes into a destination of size 256
+  406 |                         sprintf(prompt, "Do you want to overwrite %s ?", fullpath);
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gcc -g -DDBNAME=\"dss\" -DLINUX -DPOSTGRESQL -DTPCH -DRNG_TEST -D_FILE_OFFSET_BITS=64   -c -o rnd.o rnd.c
+rnd.c: In function ‘row_stop’:
+rnd.c:131:84: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘long long int’ [-Wformat=]
+  131 |                                 fprintf(stderr, "\nSEED CHANGE: seed[%d].usage = %ld\n",
+      |                                                                                  ~~^
+      |                                                                                    |
+      |                                                                                    long int
+      |                                                                                  %lld
+  132 |                                         i, Seed[i].usage);
+      |                                            ~~~~~~~~~~~~~                            
+      |                                                   |
+      |                                                   long long int
+rnd.c: In function ‘dump_seeds’:
+rnd.c:154:38: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 3 has type ‘long long int’ [-Wformat=]
+  154 |                         printf("%d(%ld):\t%ld\n", i, Seed[i].nCalls, Seed[i].value);
+      |                                    ~~^               ~~~~~~~~~~~~~~
+      |                                      |                      |
+      |                                      long int               long long int
+      |                                    %lld
+rnd.c:154:45: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘long long int’ [-Wformat=]
+  154 |                         printf("%d(%ld):\t%ld\n", i, Seed[i].nCalls, Seed[i].value);
+      |                                           ~~^                        ~~~~~~~~~~~~~
+      |                                             |                               |
+      |                                             long int                        long long int
+      |                                           %lld
+gcc -g -DDBNAME=\"dss\" -DLINUX -DPOSTGRESQL -DTPCH -DRNG_TEST -D_FILE_OFFSET_BITS=64   -c -o print.o print.c
+gcc -g -DDBNAME=\"dss\" -DLINUX -DPOSTGRESQL -DTPCH -DRNG_TEST -D_FILE_OFFSET_BITS=64   -c -o load_stub.o load_stub.c
+gcc -g -DDBNAME=\"dss\" -DLINUX -DPOSTGRESQL -DTPCH -DRNG_TEST -D_FILE_OFFSET_BITS=64   -c -o bcd2.o bcd2.c
+gcc -g -DDBNAME=\"dss\" -DLINUX -DPOSTGRESQL -DTPCH -DRNG_TEST -D_FILE_OFFSET_BITS=64   -c -o speed_seed.o speed_seed.c
+gcc -g -DDBNAME=\"dss\" -DLINUX -DPOSTGRESQL -DTPCH -DRNG_TEST -D_FILE_OFFSET_BITS=64   -c -o text.o text.c
+gcc -g -DDBNAME=\"dss\" -DLINUX -DPOSTGRESQL -DTPCH -DRNG_TEST -D_FILE_OFFSET_BITS=64   -c -o permute.o permute.c
+gcc -g -DDBNAME=\"dss\" -DLINUX -DPOSTGRESQL -DTPCH -DRNG_TEST -D_FILE_OFFSET_BITS=64   -c -o rng64.o rng64.c
+gcc -g -DDBNAME=\"dss\" -DLINUX -DPOSTGRESQL -DTPCH -DRNG_TEST -D_FILE_OFFSET_BITS=64 -O -o dbgen build.o driver.o bm_utils.o rnd.o print.o load_stub.o bcd2.o speed_seed.o text.o permute.o rng64.o -lm
+gcc -g -DDBNAME=\"dss\" -DLINUX -DPOSTGRESQL -DTPCH -DRNG_TEST -D_FILE_OFFSET_BITS=64   -c -o qgen.o qgen.c
+In file included from qgen.c:41:
+qgen.c: In function ‘qsub’:
+tpcd.h:58:25: warning: zero-length gnu_printf format string [-Wformat-zero-length]
+   58 | #define SET_DBASE       ""
+      |                         ^~
+qgen.c:197:38: note: in expansion of macro ‘SET_DBASE’
+  197 |                         fprintf(ofp, SET_DBASE, db_name);
+      |                                      ^~~~~~~~~
+gcc -g -DDBNAME=\"dss\" -DLINUX -DPOSTGRESQL -DTPCH -DRNG_TEST -D_FILE_OFFSET_BITS=64   -c -o varsub.o varsub.c
+gcc -g -DDBNAME=\"dss\" -DLINUX -DPOSTGRESQL -DTPCH -DRNG_TEST -D_FILE_OFFSET_BITS=64 -O -o qgen build.o bm_utils.o qgen.o rnd.o varsub.o text.o bcd2.o permute.o speed_seed.o rng64.o -lm

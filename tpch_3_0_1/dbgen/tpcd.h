@@ -49,6 +49,18 @@
 /*
  * database portability defines
  */
+
+// added from https://github.com/gregrahn/tpch-kit/blob/master/dbgen/tpcd.h
+#ifdef POSTGRESQL
+#define GEN_QUERY_PLAN "explain"
+#define START_TRAN "start transaction"
+#define END_TRAN "commit;"
+#define SET_OUTPUT ""
+#define SET_ROWCOUNT "limit %d;\n"
+#define SET_DBASE ""
+#endif /* POSTGRESQL */
+// added from https://github.com/gregrahn/tpch-kit/blob/master/dbgen/tpcd.h
+
 #ifdef VECTORWISE
 #define GEN_QUERY_PLAN  "EXPLAIN"
 #define START_TRAN      ""
