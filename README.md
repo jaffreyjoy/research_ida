@@ -194,4 +194,7 @@ NOTE: If an error occurs installing psycopg2 try running the below script and th
 sudo apt-get install libpq-dev python3-dev
 ```
 
-
+### Run the generated queries
+```sh
+psql -U jaffrey -d tpch -f op_queries/tpch-stream_s0.1.sql  > op.log
+```

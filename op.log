@@ -3178,3 +3178,78 @@ DROP VIEW
  168597.2860
 (1 row)
 
+          s_name           |             s_address              
+---------------------------+------------------------------------
+ Supplier#000000157        | ,mEGorBfVIm
+ Supplier#000000197        | YC2Acon6kjY3zj3Fbxs2k4Vdf7X0cd2F
+ Supplier#000000287        | 7a9SP7qW5Yku5PvSg
+ Supplier#000000378        | FfbhyCxWvcPrO8ltp9
+ Supplier#000000530        | 0qwCMwobKY OcmLyfRXlagA8ukENJv,
+ Supplier#000000555        | TfB,a5bfl3Ah 3Z 74GqnNs6zKVGM
+ Supplier#000000557        | jj0wUYh9K3fG5Jhdhrkuy ,4
+ Supplier#000000729        | pqck2ppy758TQpZCUAjPvlU55K3QjfL7Bi
+ Supplier#000000935        | ij98czM 2KzWe7dDTOxB8sq0UfCdvrX
+(9 rows)
+
+          s_name           | numwait 
+---------------------------+---------
+ Supplier#000000445        |      16
+ Supplier#000000825        |      16
+ Supplier#000000709        |      15
+ Supplier#000000762        |      15
+ Supplier#000000357        |      14
+ Supplier#000000399        |      14
+ Supplier#000000496        |      14
+ Supplier#000000977        |      13
+ Supplier#000000144        |      12
+ Supplier#000000188        |      12
+ Supplier#000000415        |      12
+ Supplier#000000472        |      12
+ Supplier#000000633        |      12
+ Supplier#000000708        |      12
+ Supplier#000000889        |      12
+ Supplier#000000380        |      11
+ Supplier#000000602        |      11
+ Supplier#000000659        |      11
+ Supplier#000000821        |      11
+ Supplier#000000929        |      11
+ Supplier#000000262        |      10
+ Supplier#000000460        |      10
+ Supplier#000000486        |      10
+ Supplier#000000669        |      10
+ Supplier#000000718        |      10
+ Supplier#000000778        |      10
+ Supplier#000000167        |       9
+ Supplier#000000578        |       9
+ Supplier#000000673        |       9
+ Supplier#000000687        |       9
+ Supplier#000000074        |       8
+ Supplier#000000565        |       8
+ Supplier#000000648        |       8
+ Supplier#000000918        |       8
+ Supplier#000000427        |       7
+ Supplier#000000503        |       7
+ Supplier#000000610        |       7
+ Supplier#000000670        |       7
+ Supplier#000000811        |       7
+ Supplier#000000114        |       6
+ Supplier#000000379        |       6
+ Supplier#000000436        |       6
+ Supplier#000000500        |       6
+ Supplier#000000660        |       6
+ Supplier#000000788        |       6
+ Supplier#000000846        |       6
+ Supplier#000000920        |       4
+(47 rows)
+
+ cntrycode | numcust | totacctbal 
+-----------+---------+------------
+ 13        |      94 |  714035.05
+ 17        |      96 |  722560.15
+ 18        |      99 |  738012.52
+ 23        |      93 |  708285.25
+ 29        |      85 |  632693.46
+ 30        |      87 |  646748.02
+ 31        |      87 |  647372.50
+(7 rows)
+

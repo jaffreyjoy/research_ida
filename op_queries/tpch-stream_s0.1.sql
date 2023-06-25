@@ -660,30 +660,58 @@ from
 	nation
 where
 	s_suppkey in (
+		-- select
+		-- 	ps_suppkey
+		-- from
+		-- 	partsupp
+		-- where
+		-- 	ps_partkey in (
+		-- 		select
+		-- 			p_partkey
+		-- 		from
+		-- 			part
+		-- 		where
+		-- 			p_name like 'forest%'
+		-- 	)
+		-- 	and ps_availqty > (
+		-- 		select
+		-- 			0.5 * sum(l_quantity)
+		-- 		from
+		-- 			lineitem
+		-- 		where
+		-- 			l_partkey = ps_partkey
+		-- 			and l_suppkey = ps_suppkey
+		-- 			and l_shipdate >= date '1994-01-01'
+		-- 			and l_shipdate < date '1994-01-01' + interval '1' year
+		-- 	)
 		select
 			ps_suppkey
 		from
 			partsupp
-		where
-			ps_partkey in (
+			join (
 				select
 					p_partkey
 				from
 					part
 				where
 					p_name like 'forest%'
-			)
-			and ps_availqty > (
+			) as _part on ps_partkey = p_partkey
+			join (
 				select
-					0.5 * sum(l_quantity)
+					l_partkey,
+					l_suppkey,
+					0.5 * sum(l_quantity) as l_quantity_halfsum
 				from
 					lineitem
 				where
-					l_partkey = ps_partkey
-					and l_suppkey = ps_suppkey
-					and l_shipdate >= date '1994-01-01'
+					l_shipdate >= date '1994-01-01'
 					and l_shipdate < date '1994-01-01' + interval '1' year
-			)
+				group by
+					l_partkey,
+					l_suppkey
+			) as _lineitem on l_partkey = ps_partkey
+			and l_suppkey = ps_suppkey
+			and ps_availqty > l_quantity_halfsum
 	)
 	and s_nationkey = n_nationkey
 	and n_name = 'CANADA'
