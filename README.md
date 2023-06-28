@@ -277,7 +277,7 @@ Output:
 ```
 `"  Buffers: shared hit=360"` is what we are interested in.
 
-### 2. Using [`pg_statio_all_tables`](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STATIO-ALL-TABLES-VIEW)
+### 3. Using [`pg_statio_all_tables`](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STATIO-ALL-TABLES-VIEW)
 
 This table has to be truncated before running a query and after running it changes in the table can be noted by querying it. Columns that are of interest to us form this table are `heap_blks_read` and `heap_blks_hit`
 
