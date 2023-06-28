@@ -4,3 +4,4 @@
 op_files/*
 tpch_3_0_1/ref_data/*
 tpch-kit/ref_data/*
+temp_files/*
