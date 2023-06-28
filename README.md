@@ -205,7 +205,7 @@ psql -U jaffrey -d tpch -f op_queries/tpch-stream_s0.1.sql  > op.log
 
 </br>
 
-## What I tried to get the number blocks accessed by a query:
+## What I tried to get the number of blocks accessed by a query:
 
 So there are multiple ways to do this...
 ### 1. Using [`pg_stat_statements`](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.41.6)
